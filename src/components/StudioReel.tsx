@@ -11,13 +11,11 @@ const reels = [
   { name: "Huberman TR", img: "1767474365536-ef81bfa24c8a" },
 ];
 
-export default function MadeWithRiverside() {
+export default function StudioReel() {
   const { t } = useLanguage();
   return (
     <section className="overflow-hidden bg-[#0d0d0d] pb-28 pt-4">
-      <h2 className="mb-10 text-center font-heading text-[28px] font-medium text-white sm:text-[34px]">
-        {t.madeWith.title}
-      </h2>
+      <h2 className="mb-10 text-center font-heading text-[28px] font-medium text-white sm:text-[34px]">{t.madeWith.title}</h2>
 
       <div className="flex gap-5 overflow-x-auto px-6 pb-4 [scrollbar-width:none] lg:justify-center [&::-webkit-scrollbar]:hidden">
         {reels.map((c) => (
@@ -27,9 +25,7 @@ export default function MadeWithRiverside() {
             style={{ backgroundImage: `url(https://images.unsplash.com/photo-${c.img}?w=500&q=80&auto=format&fit=crop)` }}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
-            <div className="absolute left-3 top-3 rounded-md bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur">
-              {c.name}
-            </div>
+            <div className="absolute left-3 top-3 rounded-md bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur">{c.name}</div>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

@@ -1,34 +1,20 @@
+"use client";
+
 import PillButton from "./PillButton";
-
-const features = [
-  {
-    title: "Edit recordings like a doc",
-    desc: "Just search, cut, copy, and paste right in the transcript to edit your videos with our text-based editor.",
-  },
-  {
-    title: "Multi-track editing",
-    desc: "With separate track recording, you can easily remove crosstalk, change layouts, and more.",
-  },
-  {
-    title: "Look and sound on-brand",
-    desc: "Add your logo, colors, intro, and outro once, then apply them with a click to stay consistent.",
-  },
-  {
-    title: "Captions that match your vibe",
-    desc: "Get customizable animated captions in just one click, perfect for reels, TikToks, and more.",
-  },
-];
-
-const toolbarIcons = ["Brand", "Layout", "Music", "Captions", "Uploads", "Record", "Images", "Text"];
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function EditingSection() {
+  const { t } = useLanguage();
+  const features = t.editing.features;
+  const toolbarIcons = t.editing.toolbar;
+
   return (
     <section className="bg-white px-6 py-28 lg:px-10">
       <div className="mx-auto max-w-[1300px]">
         <h2 className="max-w-xl font-heading text-[36px] font-medium leading-tight text-ink sm:text-[46px]">
-          Powerful editing.
+          {t.editing.title1}
           <br />
-          Purposefully simple.
+          {t.editing.title2}
         </h2>
 
         <div className="mt-16 overflow-hidden rounded-3xl bg-[#e9e6df] p-4 sm:p-10">
@@ -43,19 +29,15 @@ export default function EditingSection() {
                 <div className="aspect-video overflow-hidden rounded-lg bg-gradient-to-br from-[#3a3a3a] to-[#141414]" />
                 <div className="mt-4 flex items-end gap-[2px] rounded-lg bg-black/40 p-4">
                   {Array.from({ length: 60 }).map((_, i) => (
-                    <span
-                      key={i}
-                      className="w-1 flex-shrink-0 rounded-full bg-lime-400/80"
-                      style={{ height: `${10 + ((i * 37) % 40)}px` }}
-                    />
+                    <span key={i} className="w-1 flex-shrink-0 rounded-full bg-lime-400/80" style={{ height: `${10 + ((i * 37) % 40)}px` }} />
                   ))}
                 </div>
               </div>
               <div className="hidden w-16 flex-col items-center gap-5 border-l border-white/10 py-6 text-[10px] text-white/50 sm:flex">
-                {toolbarIcons.map((t) => (
-                  <span key={t} className="flex flex-col items-center gap-1">
+                {toolbarIcons.map((icon) => (
+                  <span key={icon} className="flex flex-col items-center gap-1">
                     <span className="h-6 w-6 rounded-md bg-white/10" />
-                    {t}
+                    {icon}
                   </span>
                 ))}
               </div>
@@ -74,13 +56,10 @@ export default function EditingSection() {
         </div>
 
         <div className="mt-20 text-center">
-          <p className="mx-auto max-w-xl text-lg font-medium leading-relaxed text-ink">
-            &ldquo;Riverside is the best tool to cut down on editing time while keeping your
-            production quality high.&rdquo;
-          </p>
-          <p className="mt-4 text-sm text-ink/50">Colin &amp; Samir | YouTubers, 1.5M subscribers</p>
+          <p className="mx-auto max-w-xl text-lg font-medium leading-relaxed text-ink">{t.editing.quote}</p>
+          <p className="mt-4 text-sm text-ink/50">{t.editing.quoteAuthor}</p>
           <div className="mt-8">
-            <PillButton href="#">Get Started</PillButton>
+            <PillButton href="/odalar">{t.editing.cta}</PillButton>
           </div>
         </div>
       </div>

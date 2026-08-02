@@ -1,4 +1,7 @@
+"use client";
+
 import PillButton from "./PillButton";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const platforms = [
   { label: "S", color: "#1ed760", angle: 300 },
@@ -8,22 +11,10 @@ const platforms = [
   { label: "AP", color: "#a855f7", angle: 330 },
 ];
 
-const features = [
-  {
-    title: "Reach your audience on every major app",
-    desc: "In just a few clicks you can get listed on Spotify, Apple, Youtube and more, to reach millions of people.",
-  },
-  {
-    title: "Use data to grow your show",
-    desc: "Get actionable insights on your podcast performance, episode success, and audience behavior with built-in, simple analytics.",
-  },
-  {
-    title: "Get everything you need to hit publish",
-    desc: "Automatically generate transcriptions, titles, descriptions, chapters, and takeaways packed with the keywords you need to reach new audiences.",
-  },
-];
-
 export default function HostingSection() {
+  const { t } = useLanguage();
+  const features = t.hosting.features;
+
   return (
     <section className="bg-[#0d0d0d] px-6 py-28 lg:px-10">
       <div className="mx-auto grid max-w-[1300px] items-center gap-16 lg:grid-cols-2">
@@ -32,13 +23,7 @@ export default function HostingSection() {
           <div className="absolute h-[280px] w-[280px] rounded-full border border-dashed border-white/15" />
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#1c1c1c]">
             <svg width="20" height="18" viewBox="0 0 20 18" fill="none">
-              <path
-                d="M1 10L6 4L11 11L19 1"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path d="M1 10L6 4L11 11L19 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
           {platforms.map((p) => {
@@ -50,10 +35,7 @@ export default function HostingSection() {
               <div
                 key={p.label}
                 className="absolute flex h-11 w-11 items-center justify-center rounded-full text-xs font-bold text-white shadow-lg"
-                style={{
-                  background: p.color,
-                  transform: `translate(${x}px, ${y}px)`,
-                }}
+                style={{ background: p.color, transform: `translate(${x}px, ${y}px)` }}
               >
                 {p.label}
               </div>
@@ -63,9 +45,9 @@ export default function HostingSection() {
 
         <div>
           <h2 className="font-heading text-[34px] font-medium leading-tight text-white sm:text-[42px]">
-            Podcast hosting
+            {t.hosting.title1}
             <br />
-            built right in
+            {t.hosting.title2}
           </h2>
           <div className="mt-10 flex flex-col gap-8">
             {features.map((f) => (
@@ -76,7 +58,7 @@ export default function HostingSection() {
             ))}
           </div>
           <div className="mt-10">
-            <PillButton href="#">Start for Free</PillButton>
+            <PillButton href="/odalar">{t.nav.reserve}</PillButton>
           </div>
         </div>
       </div>

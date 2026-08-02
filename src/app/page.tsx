@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import FlowSection from "@/components/FlowSection";
-import MadeWithRiverside from "@/components/MadeWithRiverside";
+import StudioReel from "@/components/StudioReel";
 import QualitySection from "@/components/QualitySection";
 import AISoundSection from "@/components/AISoundSection";
 import AIJumpInSection from "@/components/AIJumpInSection";
@@ -20,7 +20,7 @@ export default function Home() {
       <main>
         <Hero />
         <FlowSection />
-        <MadeWithRiverside />
+        <StudioReel />
         <QualitySection />
         <AISoundSection />
         <AIJumpInSection />
