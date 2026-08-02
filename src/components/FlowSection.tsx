@@ -2,26 +2,21 @@
 
 import { useState } from "react";
 import PillButton from "./PillButton";
-
-const steps = [
-  { name: "Record", desc: "Record solo or with guests, in top quality." },
-  { name: "Edit", desc: "Use the text-based editor, and AI when you want it." },
-  { name: "Repurpose", desc: "Turn one recording into clips and more with AI." },
-  { name: "Stream", desc: "Stream in HD to multiple destinations at once." },
-  { name: "Publish", desc: "Publish straight to Youtube, Spotify and Apple." },
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function FlowSection() {
+  const { t } = useLanguage();
   const [active, setActive] = useState(0);
+  const steps = t.flow.steps;
 
   return (
     <section className="bg-[#0d0d0d] px-6 py-28 lg:px-10">
       <div className="mx-auto grid max-w-[1300px] gap-16 lg:grid-cols-2">
         <div>
           <h2 className="font-heading text-[36px] font-medium leading-tight text-white sm:text-[46px]">
-            End to end content creation.
+            {t.flow.title1}
             <br />
-            All in one flow.
+            {t.flow.title2}
           </h2>
 
           <div className="mt-12 flex flex-col">
@@ -33,9 +28,7 @@ export default function FlowSection() {
                   active === i ? "opacity-100" : "opacity-40"
                 }`}
               >
-                <span className="font-heading text-2xl font-medium text-white sm:text-3xl">
-                  {s.name}
-                </span>
+                <span className="font-heading text-2xl font-medium text-white sm:text-3xl">{s.name}</span>
                 <span className="mt-1 max-w-[280px] text-sm text-white/60">{s.desc}</span>
               </button>
             ))}
@@ -43,8 +36,8 @@ export default function FlowSection() {
           </div>
 
           <div className="mt-10">
-            <PillButton href="#" variant="purple">
-              Start for Free
+            <PillButton href="/odalar" variant="purple">
+              {t.nav.reserve}
             </PillButton>
           </div>
         </div>
@@ -54,13 +47,14 @@ export default function FlowSection() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex h-20 w-20 items-center justify-center rounded-full bg-purple/90 shadow-lg shadow-purple/30">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                  <path d="M11 2V20M2 11H20" stroke="white" strokeWidth="0" />
                   <path d="M8 6L16 11L8 16V6Z" fill="white" />
                 </svg>
               </div>
             </div>
             <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between rounded-xl bg-black/50 px-4 py-3 text-xs text-white/70 backdrop-blur">
-              <span>{steps[active].name} in progress</span>
+              <span>
+                {steps[active].name} {t.flow.inProgress}
+              </span>
               <span className="flex h-2 w-2 rounded-full bg-purple" />
             </div>
           </div>

@@ -17,7 +17,7 @@ export default function Logo({ dark = false }: { dark?: boolean }) {
           dark ? "text-white" : "text-[#0d0d0d]"
         }`}
       >
-        RIVERSIDE
+        RECORD MEDIA
       </span>
     </div>
   );

@@ -1,28 +1,32 @@
-const creators = [
-  { name: "Jay Clouse", from: "#8b6f47", to: "#2b2320" },
-  { name: "Notion x Riverside", from: "#2f2f2f", to: "#0d0d0d" },
-  { name: "Ali Abdaal", from: "#4a5568", to: "#1a1e26" },
-  { name: "Colin & Samir", from: "#6b4b8a", to: "#1f1730" },
-  { name: "Demandly.io", from: "#1f6d5a", to: "#0e2b23" },
-  { name: "Huberman Lab", from: "#7a5230", to: "#241b12" },
+"use client";
+
+import { useLanguage } from "@/lib/LanguageContext";
+
+const reels = [
+  { name: "Ayşe K.", img: "1638389746813-5a5784e752f6" },
+  { name: "Demandly.io", img: "1761735486549-7a6a04e67061" },
+  { name: "Mert Y.", img: "1702669010428-0063fa6eb5ed" },
+  { name: "Kolin & Samet", img: "1759784120360-8b5044b71f47" },
+  { name: "Podcast TR", img: "1655947714947-451781994012" },
+  { name: "Huberman TR", img: "1767474365536-ef81bfa24c8a" },
 ];
 
 export default function MadeWithRiverside() {
+  const { t } = useLanguage();
   return (
     <section className="overflow-hidden bg-[#0d0d0d] pb-28 pt-4">
       <h2 className="mb-10 text-center font-heading text-[28px] font-medium text-white sm:text-[34px]">
-        Made with Riverside
+        {t.madeWith.title}
       </h2>
 
       <div className="flex gap-5 overflow-x-auto px-6 pb-4 [scrollbar-width:none] lg:justify-center [&::-webkit-scrollbar]:hidden">
-        {creators.map((c) => (
+        {reels.map((c) => (
           <div
             key={c.name}
-            className="relative h-[280px] w-[190px] flex-shrink-0 overflow-hidden rounded-2xl sm:h-[320px] sm:w-[220px]"
-            style={{
-              background: `linear-gradient(160deg, ${c.from}, ${c.to})`,
-            }}
+            className="relative h-[280px] w-[190px] flex-shrink-0 overflow-hidden rounded-2xl bg-cover bg-center sm:h-[320px] sm:w-[220px]"
+            style={{ backgroundImage: `url(https://images.unsplash.com/photo-${c.img}?w=500&q=80&auto=format&fit=crop)` }}
           >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
             <div className="absolute left-3 top-3 rounded-md bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur">
               {c.name}
             </div>

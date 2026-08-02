@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Bricolage_Grotesque } from "next/font/google";
+import { LanguageProvider } from "@/lib/LanguageContext";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -15,9 +16,9 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Riverside: HD Podcast & Video Software | Free Recording & Editing",
+  title: "Record Media: Podcast & Video Stüdyosu | Oda Kirala, Kaydet, Yayınla",
   description:
-    "Riverside is the AI-powered platform that lets you record, edit, repurpose, and distribute studio-quality content as easily as if you had a crew behind you.",
+    "Record Media; podcast, toplantı ve çekim odalarını online rezervasyonla sunan, kayıt ve AI destekli prodüksiyon hizmetleri veren stüdyo.",
 };
 
 export default function RootLayout({
@@ -26,8 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${instrumentSans.variable} ${bricolage.variable}`}>
-      <body className="min-h-full antialiased bg-white text-ink font-body">{children}</body>
+    <html lang="tr" className={`${instrumentSans.variable} ${bricolage.variable}`}>
+      <body className="min-h-full antialiased bg-white text-ink font-body">
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }
