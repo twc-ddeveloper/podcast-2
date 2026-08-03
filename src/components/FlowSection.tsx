@@ -43,7 +43,11 @@ export default function FlowSection() {
         </div>
 
         <div className="flex items-center justify-center">
-          <div className="relative aspect-[4/3] w-full max-w-[520px] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#2a2a2a] to-[#0d0d0d]">
+          <div
+            className="relative aspect-[4/3] w-full max-w-[520px] overflow-hidden rounded-3xl border border-white/10 bg-cover bg-center"
+            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1767474365536-ef81bfa24c8a?w=900&q=80&auto=format&fit=crop)" }}
+          >
+            <div className="absolute inset-0 bg-black/30" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex h-20 w-20 items-center justify-center rounded-full bg-purple/90 shadow-lg shadow-purple/30">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">

@@ -54,7 +54,10 @@ export default function WebinarSection() {
               <span className="mt-4 inline-flex items-center gap-1.5 rounded bg-white/10 px-2 py-1 text-xs font-semibold text-white">
                 {t.webinar.liveWebinar}
               </span>
-              <div className="absolute right-6 top-6 h-16 w-24 rounded-lg bg-white/10 sm:h-20 sm:w-28" />
+              <div
+                className="absolute right-6 top-6 h-16 w-24 rounded-lg bg-cover bg-center ring-2 ring-white/20 sm:h-20 sm:w-28"
+                style={{ backgroundImage: "url(https://images.unsplash.com/photo-1638389746813-5a5784e752f6?w=300&q=80&auto=format&fit=crop)" }}
+              />
             </div>
             <div className="flex flex-col border-t border-white/10 sm:border-l sm:border-t-0">
               <div className="border-b border-white/10 px-4 py-3 text-sm font-semibold text-white">{t.webinar.publicChat}</div>

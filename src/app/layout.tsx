@@ -18,7 +18,7 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   title: "Record Media: Podcast & Video Stüdyosu | Oda Kirala, Kaydet, Yayınla",
   description:
-    "Record Media; podcast, toplantı ve çekim odalarını online rezervasyonla sunan, kayıt ve AI destekli prodüksiyon hizmetleri veren stüdyo.",
+    "Record Media; podcast, toplantı ve çekim odalarını online rezervasyonla sunan, kayıt ve profesyonel prodüksiyon hizmetleri veren stüdyo.",
 };
 
 export default function RootLayout({

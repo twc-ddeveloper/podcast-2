@@ -1,7 +1,10 @@
 "use client";
 
 import PillButton from "./PillButton";
+import FeatureIcon from "./FeatureIcon";
 import { useLanguage } from "@/lib/LanguageContext";
+
+const featureIcons = ["doc", "layers", "brand", "captions"] as const;
 
 export default function EditingSection() {
   const { t } = useLanguage();
@@ -26,7 +29,10 @@ export default function EditingSection() {
             </div>
             <div className="flex">
               <div className="flex-1 p-5">
-                <div className="aspect-video overflow-hidden rounded-lg bg-gradient-to-br from-[#3a3a3a] to-[#141414]" />
+                <div
+                  className="aspect-video overflow-hidden rounded-lg bg-cover bg-center"
+                  style={{ backgroundImage: "url(https://images.unsplash.com/photo-1759784120360-8b5044b71f47?w=900&q=80&auto=format&fit=crop)" }}
+                />
                 <div className="mt-4 flex items-end gap-[2px] rounded-lg bg-black/40 p-4">
                   {Array.from({ length: 60 }).map((_, i) => (
                     <span key={i} className="w-1 flex-shrink-0 rounded-full bg-lime-400/80" style={{ height: `${10 + ((i * 37) % 40)}px` }} />
@@ -46,9 +52,9 @@ export default function EditingSection() {
         </div>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((f) => (
+          {features.map((f, i) => (
             <div key={f.title}>
-              <div className="mb-4 h-10 w-10 rounded-xl bg-purple/10" />
+              <FeatureIcon name={featureIcons[i]} />
               <h3 className="mb-2 text-base font-semibold text-ink">{f.title}</h3>
               <p className="text-sm leading-relaxed text-ink/60">{f.desc}</p>
             </div>

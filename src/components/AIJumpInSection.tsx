@@ -4,12 +4,7 @@ import { useState } from "react";
 import PillButton from "./PillButton";
 import { useLanguage } from "@/lib/LanguageContext";
 
-const clips = [
-  { from: "#8b6f47", to: "#2b2320" },
-  { from: "#6b4b8a", to: "#1f1730" },
-  { from: "#3d5a4a", to: "#122019" },
-  { from: "#4a5568", to: "#1a1e26" },
-];
+const clips = ["1638389746813-5a5784e752f6", "1702669010428-0063fa6eb5ed", "1655947714947-451781994012", "1767474365536-ef81bfa24c8a"];
 
 export default function AIJumpInSection() {
   const { t } = useLanguage();
@@ -36,14 +31,29 @@ export default function AIJumpInSection() {
               <h3 className="text-xl font-semibold text-white">{t.aiJumpIn.episodeReady}</h3>
             </div>
             <p className="max-w-md text-[15px] leading-relaxed text-white/60">{t.aiJumpIn.episodeDesc}</p>
-            <div className="mt-8 aspect-video rounded-2xl bg-gradient-to-br from-[#2a2a2a] to-[#0d0d0d]" />
+            <div
+              className="mt-8 aspect-video rounded-2xl bg-cover bg-center"
+              style={{ backgroundImage: "url(https://images.unsplash.com/photo-1677100091678-1e96b3de3a38?w=900&q=80&auto=format&fit=crop)" }}
+            />
           </div>
 
           <div className="rounded-3xl bg-[#161616] p-8">
             <p className="mb-4 text-sm font-semibold text-white/50">{t.aiJumpIn.magicClips}</p>
             <div className="grid grid-cols-2 gap-3">
-              {clips.map((c, i) => (
-                <div key={i} className="aspect-square rounded-xl" style={{ background: `linear-gradient(160deg, ${c.from}, ${c.to})` }} />
+              {clips.map((img, i) => (
+                <div
+                  key={i}
+                  className="relative aspect-square overflow-hidden rounded-xl bg-cover bg-center"
+                  style={{ backgroundImage: `url(https://images.unsplash.com/photo-${img}?w=400&q=80&auto=format&fit=crop)` }}
+                >
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/10">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/90">
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                        <path d="M2 1.5L7 4.5L2 7.5V1.5Z" fill="#0d0d0d" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
               ))}
             </div>
             <p className="mt-6 text-sm leading-relaxed text-white/60">{t.aiJumpIn.magicClipsDesc}</p>
@@ -73,8 +83,11 @@ export default function AIJumpInSection() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-[#2a2a2a] to-[#0d0d0d]">
-            <div className="flex h-full min-h-[320px] items-center justify-center">
+          <div
+            className="overflow-hidden rounded-3xl bg-cover bg-center"
+            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1759784120360-8b5044b71f47?w=900&q=80&auto=format&fit=crop)" }}
+          >
+            <div className="flex h-full min-h-[320px] items-center justify-center bg-black/30">
               <button className="flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink shadow-lg">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M4 2.5L11 7L4 11.5V2.5Z" fill="#0d0d0d" />

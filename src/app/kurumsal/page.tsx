@@ -3,7 +3,10 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PillButton from "@/components/PillButton";
+import FeatureIcon from "@/components/FeatureIcon";
 import { useLanguage } from "@/lib/LanguageContext";
+
+const perkIcons = ["calendar", "invoice", "tag", "brand", "support", "refresh"] as const;
 
 export default function KurumsalPage() {
   const { t } = useLanguage();
@@ -31,9 +34,9 @@ export default function KurumsalPage() {
 
         <section className="bg-white px-6 py-24 lg:px-10">
           <div className="mx-auto grid max-w-[1200px] gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {b.perks.map((p) => (
+            {b.perks.map((p, i) => (
               <div key={p.title} className="rounded-3xl border border-black/5 p-8 shadow-[0_20px_60px_-35px_rgba(0,0,0,0.2)]">
-                <div className="mb-4 h-10 w-10 rounded-xl bg-purple/10" />
+                <FeatureIcon name={perkIcons[i]} />
                 <h3 className="mb-2 text-lg font-semibold text-ink">{p.title}</h3>
                 <p className="text-sm leading-relaxed text-ink/60">{p.desc}</p>
               </div>
