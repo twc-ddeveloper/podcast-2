@@ -18,6 +18,7 @@ html {
 
 body {
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 .font-heading {
