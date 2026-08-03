@@ -22,11 +22,15 @@ function noisyWave(n: number, seed: number) {
   return Array.from({ length: n }, () => 15 + rand() * 80);
 }
 
+type Playing = "good" | "bad" | null;
+
 export default function AISoundSection() {
   const { t } = useLanguage();
-  const [listening, setListening] = useState(false);
+  const [playing, setPlaying] = useState<Playing>(null);
   const good = useMemo(() => smoothWave(48), []);
   const bad = useMemo(() => noisyWave(48, 42), []);
+
+  const toggle = (side: Playing) => setPlaying((p) => (p === side ? null : side));
 
   return (
     <section className="bg-[#f4f2ee] px-6 py-28 lg:px-10">
@@ -37,29 +41,49 @@ export default function AISoundSection() {
         <h2 className="font-heading text-[32px] font-medium leading-tight text-ink sm:text-[40px]">{t.aiSound.title}</h2>
         <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-ink/60">{t.aiSound.desc}</p>
 
-        <div className="relative mt-12 grid overflow-hidden rounded-3xl bg-[#161616] sm:grid-cols-2">
-          <div className="relative flex h-[260px] items-end justify-center gap-[3px] px-8 pb-14">
-            {good.map((h, i) => (
-              <span key={i} className="w-1.5 rounded-full bg-purple transition-all" style={{ height: `${(listening ? h : h * 0.85).toFixed(2)}%` }} />
-            ))}
-            <span className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm font-medium text-white/70">{t.aiSound.withUs}</span>
-          </div>
-          <div className="relative flex h-[260px] items-end justify-center gap-[3px] border-t border-white/10 px-8 pb-14 sm:border-l sm:border-t-0">
-            {bad.map((h, i) => (
-              <span key={i} className="w-1.5 rounded-full bg-white/30" style={{ height: `${h.toFixed(2)}%` }} />
-            ))}
-            <span className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm font-medium text-white/70">{t.aiSound.others}</span>
-          </div>
+        <div className="mt-12 grid overflow-hidden rounded-3xl bg-[#161616] sm:grid-cols-2">
+          <button
+            type="button"
+            onClick={() => toggle("good")}
+            className="group relative flex h-[280px] flex-col items-center justify-end gap-[3px] px-8 pb-8 text-left"
+          >
+            <div className={`flex h-[170px] w-full items-end justify-center gap-[3px] ${playing === "good" ? "animate-pulse" : ""}`}>
+              {good.map((h, i) => (
+                <span
+                  key={i}
+                  className="w-1.5 rounded-full bg-purple transition-all"
+                  style={{ height: `${(playing === "good" ? h : h * 0.85).toFixed(2)}%` }}
+                />
+              ))}
+            </div>
+            <span className="mt-4 text-sm font-medium text-white/70">{t.aiSound.withUs}</span>
+            <span className="mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-lg transition-transform group-hover:scale-105">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M2 6V10H4.5L8 13V3L4.5 6H2Z" fill="currentColor" />
+                <path d="M11 5.5C11.8 6.3 11.8 9.7 11 10.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+              </svg>
+              {playing === "good" ? t.aiSound.pause : t.aiSound.listen}
+            </span>
+          </button>
 
           <button
-            onClick={() => setListening((v) => !v)}
-            className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink shadow-lg transition-transform hover:scale-105"
+            type="button"
+            onClick={() => toggle("bad")}
+            className="group relative flex h-[280px] flex-col items-center justify-end gap-[3px] border-t border-white/10 px-8 pb-8 text-left sm:border-l sm:border-t-0"
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M2 6V10H4.5L8 13V3L4.5 6H2Z" fill="currentColor" />
-              <path d="M11 5.5C11.8 6.3 11.8 9.7 11 10.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-            </svg>
-            {listening ? t.aiSound.pause : t.aiSound.listen}
+            <div className={`flex h-[170px] w-full items-end justify-center gap-[3px] ${playing === "bad" ? "animate-pulse" : ""}`}>
+              {bad.map((h, i) => (
+                <span key={i} className="w-1.5 rounded-full bg-white/30" style={{ height: `${h.toFixed(2)}%` }} />
+              ))}
+            </div>
+            <span className="mt-4 text-sm font-medium text-white/70">{t.aiSound.others}</span>
+            <span className="mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-lg transition-transform group-hover:scale-105">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M2 6V10H4.5L8 13V3L4.5 6H2Z" fill="currentColor" />
+                <path d="M11 5.5C11.8 6.3 11.8 9.7 11 10.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+              </svg>
+              {playing === "bad" ? t.aiSound.pause : t.aiSound.listen}
+            </span>
           </button>
         </div>
 
