@@ -24,7 +24,7 @@ export default function KurumsalPage() {
             <h1 className="mx-auto max-w-2xl font-heading text-[38px] font-medium leading-tight text-white sm:text-[50px]">{b.heading}</h1>
             <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-white/60">{b.subheading}</p>
             <div className="mt-9">
-              <PillButton href="#demo">{b.ctaButton}</PillButton>
+              <PillButton href="/iletisim">{b.ctaButton}</PillButton>
             </div>
           </div>
         </section>
@@ -41,7 +41,7 @@ export default function KurumsalPage() {
           </div>
         </section>
 
-        <section id="demo" className="scroll-mt-20 bg-[#0d0d0d] px-6 py-24 text-center lg:px-10">
+        <section className="bg-[#0d0d0d] px-6 py-24 text-center lg:px-10">
           <h2 className="mx-auto max-w-lg font-heading text-[32px] font-medium leading-tight text-white sm:text-[40px]">{b.ctaTitle}</h2>
           <p className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-white/60">{b.ctaDesc}</p>
           <div className="mt-8">
