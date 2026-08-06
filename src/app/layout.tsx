@@ -16,9 +16,9 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Record Media: Podcast & Video Stüdyosu | Oda Kirala, Kaydet, Yayınla",
+  title: "Dad Studio: Podcast & Video Stüdyosu | Oda Kirala, Kaydet, Yayınla",
   description:
-    "Record Media; podcast, toplantı ve çekim odalarını online rezervasyonla sunan, kayıt ve profesyonel prodüksiyon hizmetleri veren stüdyo.",
+    "Dad Studio; podcast, toplantı ve çekim odalarını online rezervasyonla sunan, kayıt ve profesyonel prodüksiyon hizmetleri veren İstanbul merkezli stüdyo.",
 };
 
 export default function RootLayout({

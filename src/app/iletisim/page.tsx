@@ -14,6 +14,7 @@ export default function IletisimPage() {
     { label: c.address, value: c.addressValue },
     { label: c.phone, value: c.phoneValue },
     { label: c.email, value: c.emailValue },
+    { label: c.instagram, value: c.instagramValue },
     { label: c.hours, value: c.hoursValue },
   ];
 

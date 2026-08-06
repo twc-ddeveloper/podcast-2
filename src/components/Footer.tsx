@@ -58,6 +58,21 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+
+        <div className="border-t border-ink/10 py-6 text-center">
+          <span className="text-xs text-ink/40">
+            {f.designedByBefore}
+            <a
+              href="https://thewhalecreative.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-ink/60 hover:text-ink"
+            >
+              thewhalecreative.co
+            </a>
+            {f.designedByAfter}
+          </span>
+        </div>
       </div>
     </footer>
   );

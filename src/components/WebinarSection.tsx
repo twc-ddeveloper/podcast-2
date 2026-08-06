@@ -45,13 +45,22 @@ export default function WebinarSection() {
             <span className="rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium text-white/70">{t.webinar.invite}</span>
           </div>
           <div className="grid sm:grid-cols-[1fr_260px]">
-            <div className="relative aspect-video bg-gradient-to-br from-[#1f6d5a] to-[#0e2b23] p-6">
-              <p className="font-heading text-2xl font-semibold text-white/90 sm:text-3xl">
+            <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-[#1f6d5a] to-[#0e2b23] p-6">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 h-full w-full object-cover"
+                src="https://assets.mixkit.co/videos/42644/42644-720.mp4"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1f6d5a]/80 to-[#0e2b23]/80" />
+              <p className="relative font-heading text-2xl font-semibold text-white/90 sm:text-3xl">
                 İş
                 <br />
                 Dünyası
               </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 rounded bg-white/10 px-2 py-1 text-xs font-semibold text-white">
+              <span className="relative mt-4 inline-flex items-center gap-1.5 rounded bg-white/10 px-2 py-1 text-xs font-semibold text-white">
                 {t.webinar.liveWebinar}
               </span>
               <div

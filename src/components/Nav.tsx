@@ -13,9 +13,12 @@ export default function Nav() {
   const pathname = usePathname();
 
   const links = [
+    { href: "/", label: t.nav.home },
+    { href: "/projeler", label: t.nav.projects },
     { href: "/odalar", label: lang === "tr" ? "Odalar" : "Rooms" },
-    { href: "/kurumsal", label: t.nav.forBusiness },
-    { href: "/iletisim", label: lang === "tr" ? "İletişim" : "Contact" },
+    { href: "/hizmetler", label: t.nav.services },
+    { href: "/kurumsal", label: t.nav.about },
+    { href: "/blog", label: t.nav.blog },
   ];
 
   return (

@@ -5,8 +5,7 @@ import StudioReel from "@/components/StudioReel";
 import QualitySection from "@/components/QualitySection";
 import AISoundSection from "@/components/AISoundSection";
 import AIJumpInSection from "@/components/AIJumpInSection";
-import EditingSection from "@/components/EditingSection";
-import HostingSection from "@/components/HostingSection";
+import FAQSection from "@/components/FAQSection";
 import StudioBookingSection from "@/components/StudioBookingSection";
 import WebinarSection from "@/components/WebinarSection";
 import BusinessSection from "@/components/BusinessSection";
@@ -24,8 +23,7 @@ export default function Home() {
         <QualitySection />
         <AISoundSection />
         <AIJumpInSection />
-        <EditingSection />
-        <HostingSection />
+        <FAQSection />
         <StudioBookingSection />
         <WebinarSection />
         <BusinessSection />
